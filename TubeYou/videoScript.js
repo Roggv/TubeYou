@@ -34,7 +34,7 @@ let items = {
           "title": "🔴-LA VENGANZA... DE... PUMMEL...",
           "duration": 27,
           "elapsed": 0,
-          "chanelLogo": "./img/logo/NexxuzLogo.png",
+          "chanelLogo": "C:/Users/Roger/Documents/GitHub/TubeYou/TubeYou/img/logo/NexxuzLogo.png",
           "chanelName": "Nexxuz World",
           "chanelSubscribed": true,
           "like": 693,
@@ -57,11 +57,10 @@ document.getElementById("persona").addEventListener("click", function() {
 items.videos.forEach(video => {
   if(videoId == video.id) {
     document.getElementById("video-title").innerText = video.title;
-    /* estic intentant afegir el logo pero crec que aixi nope
+    console.log(video.chanelLogo);
     var logo = document.createElement("img");
     logo.src = video.chanelLogo;
     var chanel = document.getElementById("chanel");
     chanel.appendChild(logo);
-    */
   }
 });
