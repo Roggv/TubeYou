@@ -60,8 +60,7 @@ items.videos.forEach(video => {
     console.log(video.chanelLogo);
     var logo = document.createElement("img");
     logo.src = video.chanelLogo;
-    logo.setAttribute("id","chanel-logo");
-    var chanel = document.getElementById("chanel");
+    var chanel = document.getElementById("chanel-logo");
     chanel.appendChild(logo);
   }
 });
