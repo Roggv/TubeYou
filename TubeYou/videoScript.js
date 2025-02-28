@@ -62,5 +62,7 @@ items.videos.forEach(video => {
     logo.src = video.chanelLogo;
     var chanel = document.getElementById("chanel-logo");
     chanel.appendChild(logo);
+    var name = document.getElementById("chanel-name")
+    name.innerHTML = video.chanelName;
   }
 });
