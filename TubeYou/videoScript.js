@@ -34,7 +34,7 @@ let items = {
           "title": "🔴-LA VENGANZA... DE... PUMMEL...",
           "duration": 27,
           "elapsed": 0,
-          "chanelLogo": "C:/Users/Roger/Documents/GitHub/TubeYou/TubeYou/img/logo/NexxuzLogo.png",
+          "chanelLogo": "./img/logo/NexxuzLogo.png",
           "chanelName": "Nexxuz World",
           "chanelSubscribed": true,
           "like": 693,
@@ -60,6 +60,7 @@ items.videos.forEach(video => {
     console.log(video.chanelLogo);
     var logo = document.createElement("img");
     logo.src = video.chanelLogo;
+    logo.setAttribute("id","chanel-logo");
     var chanel = document.getElementById("chanel");
     chanel.appendChild(logo);
   }
