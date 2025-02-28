@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #272727;
+}
+
+#container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 3fr 6fr 1fr;
+    position: relative;
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    max-width: 650px;  
+    background-color: #ffffff;
+}
+
+header{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    height: 100px;
+    background-color: rgb(119, 119, 119);
+}
+
+#lupa{
+    width: 45px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+#video-container {
+    padding: 10px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    height: 100px;
+    background-color: rgb(119, 119, 119);
+    padding: 0 15px;
+}
+
+#casa {
+    width: 50px;
+    height: 50px;
+}   
+
+#persona {
+    width: 40px;
+    height: 50px;
+}

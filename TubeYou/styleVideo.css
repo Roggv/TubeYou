@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #272727;
+}
+
+#container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 3fr 6fr 1fr;
+    position: relative;
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    max-width: 650px;  
+    background-color: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    height: 100px;
+    background-color: rgb(119, 119, 119);
+}
+
+#back {
+    width: 45px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+video,h1 {
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.chanel {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+#chanel-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#chanel div h3 {
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+#chanel div button {
+    margin-left: 10px;
+    color: white;
+    background-color: red;
+    padding: 7px 24px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    height: 100px;
+    background-color: rgb(119, 119, 119);
+    padding: 0 15px;
+}
+
+#casa {
+    width: 50px;
+    height: 50px;
+}   
+
+#persona {
+    width: 40px;
+    height: 50px;
+}
