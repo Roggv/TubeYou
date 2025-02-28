@@ -56,13 +56,29 @@ document.getElementById("persona").addEventListener("click", function() {
 
 items.videos.forEach(video => {
   if(videoId == video.id) {
+    // Insert video title
     document.getElementById("video-title").innerText = video.title;
     console.log(video.chanelLogo);
+    // Insert chanel logo
     var logo = document.createElement("img");
     logo.src = video.chanelLogo;
     var chanel = document.getElementById("chanel-logo");
     chanel.appendChild(logo);
+    // Insert channel name
     var name = document.getElementById("chanel-name")
     name.innerHTML = video.chanelName;
+    // Add the subscribed functions
+    var subscribedBtn = document.getElementById("subscribed");
+    subscribedBtn.innerText = video.chanelSubscribed ? "Subscribed" : "Subscribe";
+    subscribedBtn.addEventListener("click", function() {
+      if(video.chanelSubscribed) {
+        video.chanelSubscribed = false;
+      } else {
+        video.chanelSubscribed = true;
+      }
+      subscribedBtn.innerText = video.chanelSubscribed ? "Subscribed" : "Subscribe";
+    });
+    document.getElementById("like-number").innerHTML = video.like;
+    document.getElementById("dislike-number").innerHTML = video.dislike;
   }
 });
