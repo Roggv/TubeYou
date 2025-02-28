@@ -48,7 +48,7 @@ video,h1 {
     margin-top: 15px;
 }
 
-#chanel-logo,img {
+#chanel-logo img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -65,6 +65,34 @@ video,h1 {
     background-color: red;
     padding: 7px 24px;
 }
+
+.Botons{
+    display: flex; /* No se Borrar por si aca */
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.likes-Icon{
+    margin-left: 10px;
+}
+
+#like{
+    margin-right: 20px;
+    width: 45px;
+    height: 50px;
+}
+
+.dislikes-Icon{
+    margin-left: 10px;
+}
+
+#dislike{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 45px;
+    height: 50px;
+}
+
 
 footer {
     display: flex;
