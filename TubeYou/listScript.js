@@ -4,7 +4,7 @@ let items = {
         {
             "id": 1,
             "thumbnail": "./img/thumbnail/video1.png",
-            "video": "./vid/video1.mp4",
+            "videoSource": "./vid/video1.mp4",
             "title": "Volkswagen Beetle Tesla | Como Hacer un Coche Electrico Casero",
             "duration": 28,
             "elapsed": 0,
@@ -17,7 +17,7 @@ let items = {
         {
             "id": 2,
             "thumbnail": "./img/thumbnail/video2.png",
-            "video": "./vid/video2.mp4",
+            "videoSource": "./vid/video2.mp4",
             "title": "117-0 ¿YA?!! - Black Ops 2 - Road to 100 bajas - bysTaXx",
             "duration": 30,
             "elapsed": 0,
@@ -30,7 +30,7 @@ let items = {
         {
             "id": 3,
             "thumbnail": "./img/thumbnail/video3.png",
-            "video": "./vid/video3.mp4",
+            "videoSource": "./vid/video3.mp4",
             "title": "🔴-LA VENGANZA... DE... PUMMEL...",
             "duration": 27,
             "elapsed": 0,
@@ -44,7 +44,6 @@ let items = {
 }
 
 function checkSubscriptions() {
-    // See if you're subscribed to any channel or create an empty list
     let subscriptionList = JSON.parse(localStorage.getItem("subscription-list")) || [];
 
     // Update your subscriptions
@@ -52,7 +51,7 @@ function checkSubscriptions() {
         video.chanelSubscribed = subscriptionList.includes(video.chanelName);
     });
 
-    localStorage.setItem("subscribed-channels", JSON.stringify(subscriptionList));
+    localStorage.setItem("subscription-list", JSON.stringify(subscriptionList));
 }
 checkSubscriptions();
 

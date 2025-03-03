@@ -41,10 +41,24 @@ let items = {
           "dislike": 2
       }
   ]
-}
+};
 
+function checkSubscriptions() {
+  let subscriptionList = JSON.parse(localStorage.getItem("subscription-list")) || [];
+  
+  // Update the subscription status for each video
+  items.videos.forEach(video => {
+      video.chanelSubscribed = subscriptionList.includes(video.chanelName);
+  });
+
+  localStorage.setItem("subscription-list", JSON.stringify(subscriptionList));
+}
+checkSubscriptions();
+
+// Retrieve the video ID from localStorage
 let videoId = localStorage.getItem("video-id");
 
+// Add event listeners for navigation buttons
 document.getElementById("house").addEventListener("click", function() {
   localStorage.setItem("index-option", "all");
   window.open("index.html", "_self");
@@ -55,30 +69,53 @@ document.getElementById("person").addEventListener("click", function() {
 });
 
 items.videos.forEach(video => {
-  if(videoId == video.id) {
+  if (videoId == video.id) {
     // Insert video title
     document.getElementById("video-title").innerText = video.title;
-    console.log(video.chanelLogo);
-    // Insert chanel logo
-    var logo = document.createElement("img");
+
+    // Insert the video source
+    let videoElement = document.querySelector("video");
+    let sourceElement = document.createElement("source");
+    sourceElement.src = video.video;
+    sourceElement.type = "video/mp4";
+    videoElement.appendChild(sourceElement);
+    videoElement.load(); // Reload the video to reflect changes
+
+    // Insert channel logo
+    let logo = document.createElement("img");
     logo.src = video.chanelLogo;
-    var chanel = document.getElementById("chanel-logo");
-    chanel.appendChild(logo);
+    document.getElementById("chanel-logo").appendChild(logo);
+
     // Insert channel name
-    var name = document.getElementById("chanel-name")
-    name.innerHTML = video.chanelName;
-    // Add the subscribed functions
-    var subscribedBtn = document.getElementById("subscribed");
+    document.getElementById("chanel-name").innerText = video.chanelName;
+
+    // Subscribe button logic
+    let subscribedBtn = document.getElementById("subscribed");
+    let subscriptionList = JSON.parse(localStorage.getItem("subscription-list")) || [];
+
+    // Set initial button state
+    video.chanelSubscribed = subscriptionList.includes(video.chanelName);
     subscribedBtn.innerText = video.chanelSubscribed ? "Subscribed" : "Subscribe";
+
     subscribedBtn.addEventListener("click", function() {
-      if(video.chanelSubscribed) {
-        video.chanelSubscribed = false;
+      if (video.chanelSubscribed) {
+        // Unsubscribe
+        subscriptionList = subscriptionList.filter(name => name !== video.chanelName);
       } else {
-        video.chanelSubscribed = true;
+        // Subscribe
+        subscriptionList.push(video.chanelName);
       }
+
+      // Toggle the subscription state
+      video.chanelSubscribed = !video.chanelSubscribed;
       subscribedBtn.innerText = video.chanelSubscribed ? "Subscribed" : "Subscribe";
+
+      // Save updated subscription list
+      localStorage.setItem("subscription-list", JSON.stringify(subscriptionList));
     });
-    document.getElementById("like-number").innerHTML = video.like;
-    document.getElementById("dislike-number").innerHTML = video.dislike;
+
+    // Set like and dislike numbers
+    document.getElementById("like-number").innerText = video.like;
+    document.getElementById("dislike-number").innerText = video.dislike;
   }
 });
