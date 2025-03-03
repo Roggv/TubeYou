@@ -10,7 +10,7 @@ let items = {
             "elapsed": 0,
             "chanelLogo": "./img/logo/vicesatLogo.png",
             "chanelName": "vicesat",
-            "chanelSubscribed": false,
+            "chanelSubscribed": null,
             "like": 2,
             "dislike": 258
         },
@@ -23,7 +23,7 @@ let items = {
             "elapsed": 0,
             "chanelLogo": "./img/logo/bysTaXxLogo.png",
             "chanelName": "bysTaXx",
-            "chanelSubscribed": true,
+            "chanelSubscribed": null,
             "like": 25,
             "dislike": 18
         },
@@ -36,16 +36,31 @@ let items = {
             "elapsed": 0,
             "chanelLogo": "./img/logo/NexxuzLogo.png",
             "chanelName": "Nexxuz World",
-            "chanelSubscribed": true,
+            "chanelSubscribed": null,
             "like": 693,
             "dislike": 2
         }
     ]
 }
 
-let indexOption = localStorage.getItem("index-option");
+function checkSubscriptions() {
+    // See if you're subscribed to any channel or create an empty list
+    let subscriptionList = JSON.parse(localStorage.getItem("subscription-list")) || [];
 
+    // Update your subscriptions
+    items.videos.forEach(video => {
+        video.chanelSubscribed = subscriptionList.includes(video.chanelName);
+    });
+
+    localStorage.setItem("subscribed-channels", JSON.stringify(subscriptionList));
+}
+checkSubscriptions();
+
+// Gets the video container and fills it with all videos
 let videoContainer = document.getElementById("video-container");
+
+// Get what array of videos has to display (Home / Subscribed)
+let indexOption = localStorage.getItem("index-option");
 
 function loadVideos() {
     videoContainer.innerHTML = "";
@@ -81,12 +96,13 @@ function loadVideos() {
 };
 loadVideos();
 
-document.getElementById("house").addEventListener("click", function() {
+// Add event listeners to the buttons
+document.getElementById("house").addEventListener("click", function () {
     localStorage.setItem("index-option", "all");
     indexOption = "all";
     loadVideos();
 });
-document.getElementById("person").addEventListener("click", function() {
+document.getElementById("person").addEventListener("click", function () {
     localStorage.setItem("index-option", "subscribed");
     indexOption = "subscribed";
     loadVideos();

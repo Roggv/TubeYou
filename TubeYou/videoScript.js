@@ -10,7 +10,7 @@ let items = {
           "elapsed": 0,
           "chanelLogo": "./img/logo/vicesatLogo.png",
           "chanelName": "vicesat",
-          "chanelSubscribed": false,
+          "chanelSubscribed": null,
           "like": 2,
           "dislike": 258
       },
@@ -23,7 +23,7 @@ let items = {
           "elapsed": 0,
           "chanelLogo": "./img/logo/bysTaXxLogo.png",
           "chanelName": "bysTaXx",
-          "chanelSubscribed": true,
+          "chanelSubscribed": null,
           "like": 25,
           "dislike": 18
       },
@@ -36,7 +36,7 @@ let items = {
           "elapsed": 0,
           "chanelLogo": "./img/logo/NexxuzLogo.png",
           "chanelName": "Nexxuz World",
-          "chanelSubscribed": true,
+          "chanelSubscribed": null,
           "like": 693,
           "dislike": 2
       }
