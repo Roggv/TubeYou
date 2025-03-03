@@ -45,11 +45,11 @@ let items = {
 
 let videoId = localStorage.getItem("video-id");
 
-document.getElementById("casa").addEventListener("click", function() {
+document.getElementById("house").addEventListener("click", function() {
   localStorage.setItem("index-option", "all");
   window.open("index.html", "_self");
 });
-document.getElementById("persona").addEventListener("click", function() {
+document.getElementById("person").addEventListener("click", function() {
   localStorage.setItem("index-option", "subscribed");
   window.open("index.html", "_self");
 });

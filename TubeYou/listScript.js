@@ -81,12 +81,12 @@ function loadVideos() {
 };
 loadVideos();
 
-document.getElementById("casa").addEventListener("click", function() {
+document.getElementById("house").addEventListener("click", function() {
     localStorage.setItem("index-option", "all");
     indexOption = "all";
     loadVideos();
 });
-document.getElementById("persona").addEventListener("click", function() {
+document.getElementById("person").addEventListener("click", function() {
     localStorage.setItem("index-option", "subscribed");
     indexOption = "subscribed";
     loadVideos();
