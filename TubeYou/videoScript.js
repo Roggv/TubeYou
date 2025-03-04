@@ -43,9 +43,6 @@ let items = {
   ]
 };
 
-// window.onload = function()
-// {
-
   var clip = document.getElementById("video"); 
   function playVideo()
   {
@@ -56,8 +53,6 @@ let items = {
   {
     clip.pause();
   }
-
-// }
 
 
 function play()
