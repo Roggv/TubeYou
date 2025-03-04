@@ -48,19 +48,15 @@ video,h1 {
     margin-top: 15px;
 }
 
-#playPause img{
-
+.playPause{
+    display: flex;
+    flex-wrap: wrap;
     margin-left: 25px;
+}
+
+#playIcon, #pauseIcon{
     width: 25px;
     height: 25px;
-}
-
-.hide{
-    display: none;
-}
-
-.show{
-    display: show;
 }
 
 #chanel-logo img {

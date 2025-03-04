@@ -21,14 +21,14 @@
                 <source type="video/mp4">
             </video>
 
-            <div id="playPause">
-                <img class="show" id="playIcon" src="img/play.png" alt="">
-                <img class="hide" id="pauseIcon " src="img/pause.png" alt="">
+            <div class="playPause">
+                <div id="playButton" onclick="playVideo()">
+                    <img id="playIcon" src="img/play.png" alt="">
+                </div>
+                <div id="pauseButton" onclick="pauseVideo()">
+                    <img id="pauseIcon" src="img/pause.png" alt="">
+                </div>
             </div>
-
-            <!-- <button id="playVideo">
-                <img src="img/play.png" alt="">
-            </button> -->
 
             <h1 id="video-title"></h1>
 
