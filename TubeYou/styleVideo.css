@@ -66,33 +66,26 @@ video,h1 {
     padding: 7px 24px;
 }
 
-.Botons{
-    display: flex; /* No se Borrar por si aca */
+.likeDislikeBtn {
+    display: flex;
     flex-wrap: wrap;
     margin-top: 25px;
 }
 
-.likes-Icon{
-    margin-left: 10px;
+.likes-Icon, .dislikes-Icon {
+    margin-left: 35px;
 }
 
-#like{
+#dislike-number, #like-number {
+    margin-top: 5px;
+    margin-left: -5px;
+}
+
+#like, #dislike {
     margin-right: 20px;
-    width: 45px;
-    height: 50px;
+    width: 30px;
+    height: 35px;
 }
-
-.dislikes-Icon{
-    margin-left: 10px;
-}
-
-#dislike{
-    margin-top: 10px;
-    margin-right: 20px;
-    width: 45px;
-    height: 50px;
-}
-
 
 footer {
     display: flex;
