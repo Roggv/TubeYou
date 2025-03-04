@@ -11,6 +11,7 @@ let items = {
           "chanelLogo": "./img/logo/vicesatLogo.png",
           "chanelName": "vicesat",
           "chanelSubscribed": null,
+          "engagement": null,
           "like": 2,
           "dislike": 258
       },
@@ -24,6 +25,7 @@ let items = {
           "chanelLogo": "./img/logo/bysTaXxLogo.png",
           "chanelName": "bysTaXx",
           "chanelSubscribed": null,
+          "engagement": null,
           "like": 25,
           "dislike": 18
       },
@@ -37,6 +39,7 @@ let items = {
           "chanelLogo": "./img/logo/NexxuzLogo.png",
           "chanelName": "Nexxuz World",
           "chanelSubscribed": null,
+          "engagement": null,
           "like": 693,
           "dislike": 2
       }
@@ -107,6 +110,18 @@ items.videos.forEach(video => {
     // Insert channel name
     document.getElementById("chanel-name").innerText = video.chanelName;
 
+    // Loads your engagement
+    let engagementList = JSON.parse(localStorage.getItem("engagement-list")) || {};
+    if (engagementList[video.id] === "like") {
+      video.like++;
+    } else if (engagementList[video.id] === "dislike") {
+      video.dislike++;
+    }
+
+    // Insert like and dislike numbers
+    document.getElementById("like-number").innerText = video.like;
+    document.getElementById("dislike-number").innerText = video.dislike;
+
     // Subscribe button logic
     let subscribedBtn = document.getElementById("subscribed");
     let subscriptionList = JSON.parse(localStorage.getItem("subscription-list")) || [];
@@ -132,8 +147,40 @@ items.videos.forEach(video => {
       localStorage.setItem("subscription-list", JSON.stringify(subscriptionList));
     });
 
-    // Set like and dislike numbers
-    document.getElementById("like-number").innerText = video.like;
-    document.getElementById("dislike-number").innerText = video.dislike;
+    document.getElementById("likes-icon").addEventListener("click", function() {
+      let engagementList = JSON.parse(localStorage.getItem("engagement-list")) || {};
+      
+      if (video.engagement === null) {
+        video.like++;
+        video.engagement = "like";
+      } else if (video.engagement === "dislike") {
+        video.dislike--;
+        video.like++;
+        video.engagement = "like";
+      }
+      
+      engagementList[video.id] = video.engagement;
+      localStorage.setItem("engagement-list", JSON.stringify(engagementList));
+      document.getElementById("like-number").innerText = video.like;
+      document.getElementById("dislike-number").innerText = video.dislike;
+    });
+    
+    document.getElementById("dislikes-icon").addEventListener("click", function() {
+      let engagementList = JSON.parse(localStorage.getItem("engagement-list")) || {};
+      
+      if (video.engagement === null) {
+        video.dislike++;
+        video.engagement = "dislike";
+      } else if (video.engagement === "like") {
+        video.like--;
+        video.dislike++;
+        video.engagement = "dislike";
+      }
+      
+      engagementList[video.id] = video.engagement;
+      localStorage.setItem("engagement-list", JSON.stringify(engagementList));
+      document.getElementById("like-number").innerText = video.like;
+      document.getElementById("dislike-number").innerText = video.dislike;
+    });
   }
 });
