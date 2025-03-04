@@ -59,11 +59,13 @@ video,h1 {
     margin-bottom: 5px;
 }
 
-#chanel div button {
+#subscribed {
     margin-left: 10px;
     color: white;
     background-color: red;
-    padding: 7px 24px;
+    padding: 7.5px;
+    width: 100px;
+    border-radius: 5%;
 }
 
 .likeDislikeBtn {
