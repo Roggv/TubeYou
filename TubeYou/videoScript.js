@@ -43,6 +43,19 @@ let items = {
   ]
 };
 
+window.onload = function()
+{
+  document.getElementById("playPause").onclick = play;
+
+}
+
+
+function play()
+{
+  let video = document.getElementById("video");
+  video.play();
+}
+
 function checkSubscriptions() {
   let subscriptionList = JSON.parse(localStorage.getItem("subscription-list")) || [];
   
@@ -113,7 +126,7 @@ items.videos.forEach(video => {
       // Save updated subscription list
       localStorage.setItem("subscription-list", JSON.stringify(subscriptionList));
     });
-
+z
     // Set like and dislike numbers
     document.getElementById("like-number").innerText = video.like;
     document.getElementById("dislike-number").innerText = video.dislike;
